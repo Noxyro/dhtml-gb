@@ -1,5 +1,7 @@
 package com.gmail.noxyro.dhtmlgb
 
+/*
+
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ClassPathResource
@@ -29,3 +31,4 @@ open class ApplicationConfiguration {
 		return requestHandler
 	}
 }
+*/

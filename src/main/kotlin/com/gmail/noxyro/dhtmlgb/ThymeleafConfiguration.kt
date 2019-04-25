@@ -2,25 +2,23 @@ package com.gmail.noxyro.dhtmlgb
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.web.servlet.config.annotation.EnableWebMvc
 import org.thymeleaf.spring5.SpringTemplateEngine
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver
 import org.thymeleaf.spring5.view.ThymeleafViewResolver
 
 
 @Configuration
-@EnableWebMvc
 open class ThymeleafConfiguration {
 
 	@Bean
 	open fun templateEngine(): SpringTemplateEngine {
 		val templateEngine = SpringTemplateEngine()
-		templateEngine.setTemplateResolver(thymeleafTemplateResolver())
+		templateEngine.setTemplateResolver(templateResolver())
 		return templateEngine
 	}
 
 	@Bean
-	open fun thymeleafTemplateResolver(): SpringResourceTemplateResolver {
+	open fun templateResolver(): SpringResourceTemplateResolver {
 		val templateResolver = SpringResourceTemplateResolver()
 		templateResolver.prefix = "classpath:/templates/"
 		templateResolver.suffix = ".html"
@@ -29,7 +27,7 @@ open class ThymeleafConfiguration {
 	}
 
 	@Bean
-	open fun thymeleafViewResolver(): ThymeleafViewResolver {
+	open fun viewResolver(): ThymeleafViewResolver {
 		val viewResolver = ThymeleafViewResolver()
 		viewResolver.templateEngine = templateEngine()
 		return viewResolver

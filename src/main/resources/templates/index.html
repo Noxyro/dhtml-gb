@@ -1,6 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Title</title>
@@ -13,19 +13,51 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-3">Jumbo heading</h1>
-            <p class="lead">Jumbo helper text</p>
-            <hr class="my-2">
-            <p>More info</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-            </p>
+<div class="container">
+    <div class="jumbotron" id="wrapper" style="padding: 32px;">
+        <h1 class="display-3" style="text-align: center;">DHTML Guestbook</h1>
+        <hr class="my-3">
+        <div class="container">
+            <form id="form">
+                <div class="form-group row">
+                    <label class="col-2" for="form-input-name">Name</label>
+                    <input type="text" name="name" id="form-input-name" class="form-control col"
+                           placeholder="Max Mustermann" aria-describedby="help-form-input-name">
+                </div>
+                <div class="form-group row">
+                    <label class="col-2" for="form-input-mail">Email</label>
+                    <input type="mail" class="form-control col" name="mail" id="form-input-mail"
+                           aria-describedby="help-form-input-mail"
+                           placeholder="max@mustermann.de">
+                </div>
+                <div class="form-group row">
+                    <label class="col-2" for="form-text-content">Comment</label>
+                    <textarea class="form-control col" name="content" id="form-text-content" rows="3"
+                              placeholder="Enter your content here ..."></textarea>
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#progress-container"
+                            role="button" type="submit">Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <div class="collapse">
+        <div class="progress">
+            <div id="progress" class="progress-bar bg-info " role="progressbar" style="width: 0%;"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="entries">
+
+    </div>
+</div>
+<script type="text/javascript" src="/javascript/app.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -35,5 +67,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
