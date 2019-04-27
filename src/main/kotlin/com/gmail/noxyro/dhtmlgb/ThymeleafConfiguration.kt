@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration
 import org.thymeleaf.spring5.SpringTemplateEngine
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver
 import org.thymeleaf.spring5.view.ThymeleafViewResolver
+import org.thymeleaf.templatemode.TemplateMode
 
 
 @Configuration
@@ -22,7 +23,7 @@ open class ThymeleafConfiguration {
 		val templateResolver = SpringResourceTemplateResolver()
 		templateResolver.prefix = "classpath:/templates/"
 		templateResolver.suffix = ".html"
-		templateResolver.setTemplateMode("HTML")
+		templateResolver.templateMode = TemplateMode.HTML
 		return templateResolver
 	}
 
