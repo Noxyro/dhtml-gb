@@ -1,14 +1,12 @@
 # DHTML Gästebuch
 by Oliver Kipping (C) 2019
 
-#### Die Abgabe ist auch unter folgendem Link erreichbar:
+#### Unter folgendem Link erreichbar:
 
-Quellcode: https://github.com/Noxyro/dhtml-gb
-Anwendung: https://guestbook.elodrias.de
-
+https://guestbook.elodrias.de
 
 
-#### Für das Projekt verwendet wurde:
+#### Für das Projekt wurde verwendet:
 
 - [Kotlin](https://kotlinlang.org/) - als Programmiersprache
 - [Spring Boot](https://spring.io/projects/spring-boot) - als JVM Web Framework
