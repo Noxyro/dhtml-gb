@@ -1,8 +1,9 @@
-<div th:each="entry, iterator: ${entries}" class="entry"
+<div th:each="entry, iterator: ${entries}" class="entry" th:id="${entry.id}"
      th:style="'background: #' + (${iterator.even} ? 'eee' : 'ccc') + '; padding: 10px; border-bottom: 1px solid #777;'"
      xmlns:th="http://www.w3.org/1999/xhtml">
     <h3 th:text="${entry.name} != '' ? ${entry.name} : 'Name'">Name</h3>
     <small th:text="'Am: ' + (${entry.timestamp} != '' ? ${entry.timestamp} : '01.01.2000 00:00:00')">Am: 01.01.2000 00:00:00</small>
     <small th:text="' | Von: ' + (${entry.mail} != '' ? ${entry.mail} : 'name@mail.com')">Von: name@mail.com</small>
     <p th:text="${entry.content} != '' ? ${entry.content} : 'Content'">Content</p>
+    <button type="button" class="btn-sm btn-danger" onclick="removeEntry(this.parentElement.id);">Remove</button>
 </div>

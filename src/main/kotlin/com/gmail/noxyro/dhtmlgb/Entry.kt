@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class Entry(
+	val id: String,
 	val name: String,
 	val mail: String,
 	val content: String,

@@ -3,10 +3,7 @@ package com.gmail.noxyro.dhtmlgb
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
 import org.thymeleaf.TemplateEngine
 import org.thymeleaf.context.Context
 import java.io.File
@@ -15,6 +12,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
+import kotlin.collections.LinkedHashMap
 
 @Controller
 class DhtmlGuestbookApplicationController {
@@ -23,12 +21,12 @@ class DhtmlGuestbookApplicationController {
 	private lateinit var templateEngine: TemplateEngine
 
 	private val entriesPath: String = "entries.json"
-	private val entries: MutableList<Entry> = File(entriesPath).run {
+	private var entries: LinkedHashMap<String, Entry> = File(entriesPath).run {
 		if (!exists()) {
-			mutableListOf<Entry>()
+			linkedMapOf()
 		} else {
 			val text = this.readText()
-			mutableListOf<Entry>().fromJsonString(text)
+			linkedMapOf<String, Entry>().fromJsonString(text)
 		}
 	}
 
@@ -41,7 +39,7 @@ class DhtmlGuestbookApplicationController {
 	@ResponseBody
 	fun entries(): String {
 		val ctx = Context()
-		ctx.setVariable("entries", entries)
+		ctx.setVariable("entries", entries.values)
 		return processTemplate("entries", ctx)
 	}
 
@@ -64,22 +62,31 @@ class DhtmlGuestbookApplicationController {
 
 		val errors = validateEntry(newEntry)
 
-		if (errors.isNotEmpty()) {
-			errors.forEach {
-				System.out.println(it.toJsonString())
-			}
-
-			return errors(errors)
-		}
+		if (errors.isNotEmpty()) { return errors(errors) }
 
 		val formatter: DateTimeFormatter = DateTimeFormatter
 			.ofLocalizedDateTime(FormatStyle.MEDIUM)
 			.withLocale(Locale.GERMANY)
 			.withZone(ZoneId.systemDefault())
+		val id = UUID.randomUUID().toString()
 		val time: String = formatter.format(Instant.now())
-		val entry = Entry(newEntry.name, newEntry.mail, newEntry.content, time)
-		entries.add(0, entry)
+		val entry = Entry(id, newEntry.name, newEntry.mail, newEntry.content, time)
+
+		val newEntries = linkedMapOf<String, Entry>(id to entry)
+		newEntries.putAll(entries)
+		entries = newEntries
+
 		File(entriesPath).writeText(entries.toJsonString())
+		return ""
+	}
+
+	@DeleteMapping("/remove")
+	@ResponseBody
+	fun removeContent(@RequestBody uuid: String): String {
+		val id = uuid.substring(1, uuid.length - 1)
+		if (!entries.containsKey(id)) return "Invalid ID!"
+
+		entries.remove(id)
 		return ""
 	}
 
