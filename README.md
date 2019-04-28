@@ -1,12 +1,12 @@
 # DHTML Gästebuch
-## by Oliver Kipping (C) 2019
+by Oliver Kipping (C) 2019
 
-Die Abgabe ist auch unter folgendem Link erreichbar:
+#### Die Abgabe ist auch unter folgendem Link erreichbar:
 
 https://guestbook.elodrias.de
 
 
-Für das Projekt verwendet wurde:
+#### Für das Projekt verwendet wurde:
 
 - Kotlin - als Programmiersprache
 - Spring Boot - als JVM Web Framework
@@ -15,7 +15,7 @@ Für das Projekt verwendet wurde:
 - Maven - als Build-Tool
 
 
-### Details:
+## Details:
 
 [INFO] com.gmail.noxyro:dhtml-guestbook:jar:0.0.1-SNAPSHOT
 [INFO] +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.1.4.RELEASE:compile
