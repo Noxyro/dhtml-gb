@@ -113,7 +113,9 @@ function fetchEntries() {
 
 function removeEntry(id) {
     sendRequest("DELETE", "/remove", id, (errors) => {
-        if (debugMode) { console.log("Removed: " + id) }
+        if (debugMode) {
+            console.log("Removed: " + id)
+        }
 
         if (errors !== "") {
             showErrors(errors);

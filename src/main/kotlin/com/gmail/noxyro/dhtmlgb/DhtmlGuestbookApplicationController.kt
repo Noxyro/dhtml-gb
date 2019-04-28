@@ -12,7 +12,6 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 @Controller
 class DhtmlGuestbookApplicationController {
@@ -62,7 +61,9 @@ class DhtmlGuestbookApplicationController {
 
 		val errors = validateEntry(newEntry)
 
-		if (errors.isNotEmpty()) { return errors(errors) }
+		if (errors.isNotEmpty()) {
+			return errors(errors)
+		}
 
 		val formatter: DateTimeFormatter = DateTimeFormatter
 			.ofLocalizedDateTime(FormatStyle.MEDIUM)
