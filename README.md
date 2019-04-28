@@ -16,6 +16,7 @@ https://guestbook.elodrias.de
 
 
 ### Abhängigkeiten-Details:
+
 com.gmail.noxyro:dhtml-guestbook:jar:0.0.1-SNAPSHOT  
 +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.1.4.RELEASE:compile  
 |  +- org.springframework.boot:spring-boot-starter:jar:2.1.4.RELEASE:compile  
