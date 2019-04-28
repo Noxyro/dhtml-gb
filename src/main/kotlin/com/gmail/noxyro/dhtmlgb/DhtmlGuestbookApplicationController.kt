@@ -17,7 +17,7 @@ import java.time.format.FormatStyle
 import java.util.*
 
 @Controller
-class ApplicationController {
+class DhtmlGuestbookApplicationController {
 
 	@Autowired
 	private lateinit var templateEngine: TemplateEngine
@@ -78,7 +78,7 @@ class ApplicationController {
 			.withZone(ZoneId.systemDefault())
 		val time: String = formatter.format(Instant.now())
 		val entry = Entry(newEntry.name, newEntry.mail, newEntry.content, time)
-		entries.add(entry)
+		entries.add(0, entry)
 		File(entriesPath).writeText(entries.toJsonString())
 		return ""
 	}

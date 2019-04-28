@@ -9,17 +9,17 @@ import org.thymeleaf.templatemode.TemplateMode
 
 
 @Configuration
-open class ThymeleafConfiguration {
+class DhtmlGuestbookThymeleafConfiguration {
 
 	@Bean
-	open fun templateEngine(): SpringTemplateEngine {
+	fun templateEngine(): SpringTemplateEngine {
 		val templateEngine = SpringTemplateEngine()
 		templateEngine.setTemplateResolver(templateResolver())
 		return templateEngine
 	}
 
 	@Bean
-	open fun templateResolver(): SpringResourceTemplateResolver {
+	fun templateResolver(): SpringResourceTemplateResolver {
 		val templateResolver = SpringResourceTemplateResolver()
 		templateResolver.prefix = "classpath:/templates/"
 		templateResolver.suffix = ".html"
@@ -28,7 +28,7 @@ open class ThymeleafConfiguration {
 	}
 
 	@Bean
-	open fun viewResolver(): ThymeleafViewResolver {
+	fun viewResolver(): ThymeleafViewResolver {
 		val viewResolver = ThymeleafViewResolver()
 		viewResolver.templateEngine = templateEngine()
 		return viewResolver
