@@ -6,7 +6,7 @@ by Oliver Kipping (C) 2019
 https://guestbook.elodrias.de
 
 
-#### Für das Projekt verwendet wurde:
+#### Für das Projekt wurde verwendet:
 
 - [Kotlin](https://kotlinlang.org/) - als Programmiersprache
 - [Spring Boot](https://spring.io/projects/spring-boot) - als JVM Web Framework
