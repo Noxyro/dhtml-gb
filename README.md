@@ -1,7 +1,7 @@
 # DHTML Gästebuch
 by Oliver Kipping (C) 2019
 
-#### Die Abgabe ist auch unter folgendem Link erreichbar:
+#### Unter folgendem Link erreichbar:
 
 https://guestbook.elodrias.de
 
