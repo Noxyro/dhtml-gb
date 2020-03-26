@@ -1,5 +1,5 @@
 # DHTML Gästebuch
-by Oliver Kipping (C) 2019
+by Noxyro (C) 2019
 
 #### Unter folgendem Link erreichbar:
 
